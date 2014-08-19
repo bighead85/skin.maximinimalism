@@ -56,7 +56,7 @@
 		    <label2></label2>
 		    <onclick>action(fullscreen)</onclick>
 		</item>
-		<!--CD / DVD handling-->
+		<!--CD / DVD handling
 		<item>
 		    <visible>System.HasMediaDVD</visible>
 		    <label>341</label>
@@ -68,7 +68,7 @@
 		    <label>31135</label>
 		    <label2></label2>
 		    <onclick>EjectTray()</onclick>
-		</item>
+		</item> -->
 		<!--latest items-->
 		<item>
 		    <label>31005</label>
