@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="false">9000</defaultcontrol>
+	<views>50,509</views>
     <allowoverlay>yes</allowoverlay>
     <onload condition="Skin.hassetting(stopVideoOnMenu) + !Player.HasAudio">PlayerControl(stop)</onload>
     <onload condition="window.previous(0)">setfocus(9000)</onload>
@@ -57,7 +58,7 @@
                 </control>
                 <!--tvshow name and season details (TVShows only)-->
                 <control type="group">
-                    <visible>[container.content(episodes) | container.content(seasons)] + !Substring(Container.folderpath,plugin) + SubString(skin.string(showRecentVideoItems),false)</visible>
+                    <visible>[container.content(movies) | container.content(tvshows) | container.content(episodes) | container.content(seasons)] + !Substring(Container.folderpath,plugin) + SubString(skin.string(showRecentVideoItems),false)</visible>
                     <posx>1824</posx>
                     <posy>row-2-begin</posy>
                     <control type="label">
@@ -86,7 +87,45 @@
                         <width>8-col</width>
                         <font>regular</font>
                         <align>right</align>
+                        <label>$INFO[ListItem.label] - $INFO[ListItem.genre]</label>
+                        <textcolor>selected</textcolor>
+                    </control>
+                </control>
+                <!--Movie name and details (Movies only)-->
+                <control type="group">
+                    <visible>[container.content(movies)] + !Substring(Container.folderpath,plugin) + SubString(skin.string(showRecentVideoItems),false)</visible>
+                    <posx>1824</posx>
+                    <posy>row-2-begin</posy>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>12-col</width>
+                        <font>pageTitle</font>
+                        <align>right</align>
+                        <label>$INFO[listitem.Title]</label>
+                        <textcolor>selected</textcolor>
+						<scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <visible>container.content(movies)</visible>
+                        <posx>0</posx>
+                        <posy>45</posy>
+                        <width>12-col</width>
+                        <font>regular</font>
+                        <align>right</align>
                         <label>$INFO[ListItem.genre]</label>
+                        <textcolor>selected</textcolor>
+						<scroll>true</scroll>
+                    </control>
+                    <control type="label">
+                        <visible>container.content(movies)</visible>
+						<visible>!isempty(ListItem.Duration)</visible>
+                        <posx>0</posx>
+                        <posy>80</posy>
+                        <width>12-col</width>
+                        <font>regular</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Mpaa] - $INFO[ListItem.Duration] Min - Released: $INFO[ListItem.Year]</label>
                         <textcolor>selected</textcolor>
                     </control>
                 </control>
@@ -604,6 +643,7 @@
                         <include>viewGridList</include>
                         <include>viewSeasons</include>
                         <include>viewEpisodes</include>
+ 			<include>viewVideopanel</include>
                     </control>
                 </control>
                 <!--page scrollbar-->
@@ -617,6 +657,8 @@
                         <onleft>9999</onleft>
                     </control>
                 </control>
+
+
                 <!--Sort / misc labels (footer)-->
                 <control type="group">
                     <visible>SubString(skin.string(showRecentVideoItems),false)</visible>

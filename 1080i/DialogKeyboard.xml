@@ -19,7 +19,6 @@
                 <width>fullscreenWidth</width>
                 <height>15-row</height>
                 <texture>colors/black.png</texture>
-                <colordiffuse>ccffffff</colordiffuse>
             </control>
             <!--headers-->
             <control type="group">
@@ -43,13 +42,16 @@
                     <aspectratio>stretch</aspectratio>
                     <texture>colors/keyselected.png</texture>
                 </control>
-                <control type="label" id="310">
+                <control type="edit" id="312">
                     <description>Edit Text</description>
                     <posx>0</posx>
                     <posy>-12</posy>
                     <width>17-col-gutter</width>
                     <height>1-row</height>
                     <align>center</align>
+					<font>selected</font>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
                 </control>
             </control>
             <!--keyboard-->
