@@ -141,6 +141,22 @@
         <onclick>activateWindow(pvrguidesearch)</onclick>
     </control>
 	
+	<!--ChangeView-->
+    <control type="button" id="512">
+        <description>Sort by</description>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+        <label>Change View</label>
+	<onclick>Container.NextViewMode</onclick>
+    </control>
+
+
 	<!--sorting-->
     <control type="button" id="3">
         <description>Sort by</description>
@@ -171,7 +187,7 @@
         <textoffsetx>12</textoffsetx>
     </control>
 
-   	<control type="button" id="504">
+   	<!-- <control type="button" id="504">
         <description>Timers / scheduler</description>
         <height>54</height>
         <width>4-col</width>
@@ -183,7 +199,7 @@
         <textoffsetx>12</textoffsetx>
         <label>31119</label>
         <onclick>ActivateWindowAndFocus(pvr, 35,0, 9999,1)</onclick>
-    </control>
+    </control> -->
 
     <control type="button" id="505">
         <description>Menu shortcuts (video)</description>
@@ -279,6 +295,21 @@
 		<selected>system.ismaster</selected>
 		<visible>system.haslocks</visible>
 	</control>
+<!-- eject -->
+		<control type="button" id="555">
+		    <visible>System.HasMediaDVD</visible>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+		    <label>31135</label>
+		    <label2></label2>
+		    <onclick>EjectTray()</onclick>
+		</control>
 </include>
 
 <!--music menu items-->

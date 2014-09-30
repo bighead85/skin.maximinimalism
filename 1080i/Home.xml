@@ -4,18 +4,22 @@
     <allowoverlay>yes</allowoverlay>
     <onload condition="Skin.hassetting(stopVideoOnMenu) + !Player.HasAudio">PlayerControl(stop)</onload>
 	<onload>Skin.Reset(keepMusicMenuActive)</onload>
-    <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-    <animation effect="fade" start="0" end="100" time="1000" reversible="true">WindowOpen</animation>
+
     <controls>
 		<include>globalBackground</include>
+	<!--MP EDIT IP-->
+          <control type="label">
+                <width>24-col</width>
+                <align>left</align>
+                <font>smallMedium</font>
+                <textcolor>selected</textcolor>
+                <label>IP Address: $INFO[Network.IPAddress]</label>
+            </control>
         <!--Date / time and weather-->
         <control type="group">
             <posx>col-1-begin</posx>
             <posy>row-13-begin</posy>
-            <animation type="Windowopen">
-                <effect type="fade" start="0" end="100" time="300" delay="1000" />
-                <effect type="slide" start="0,200" end="0" tween="sine" easing="out" time="400" delay="1000" />
-            </animation>
+
 			<control type="label">
                 <visible>PVR.IsRecording</visible>
 				<posx>28</posx>
@@ -46,16 +50,7 @@
                 <textcolor>selected</textcolor>
                 <label>$INFO[System.Date(DDD)] [B]$INFO[System.Date(dd)][/B] $INFO[System.Date(MMM)]</label>
             </control>
-            <control type="label">
-                <visible>!IsEmpty(Weather.location)</visible>
-                <posx>0</posx>
-                <posy>3-row</posy>
-                <width>24-col</width>
-                <align>center</align>
-                <font>regular</font>
-                <textcolor>selected</textcolor>
-                <label>$INFO[Window(Weather).Property(location)] [B]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][/B] [LOWERCASE]$INFO[Window(Weather).property(current.condition)][/LOWERCASE]</label>
-            </control>
+
             <!--system info indicator-->
             <control type="label">
                 <animation effect="fade" start="0" end="100" delay="600" tween="sine" time="500">WindowOpen</animation>
@@ -65,8 +60,10 @@
                 <align>center</align>
                 <font>smallMedium</font>
                 <textcolor>selected</textcolor>
-                <label>[B]↑[/B] $LOCALIZE[10511]      [B]↓[/B] $LOCALIZE[24027]</label>
+            <!--MP EDIT -->    <label>[B]↑[/B] $LOCALIZE[10511]      [B]↓[/B] $LOCALIZE[137]</label>
             </control>
+<!-- Localize explainations https://github.com/xbmc/xbmc/blob/master/language/English/strings.po -->
+
         </control>
         <!--browse controls-->
         <control type="group">
@@ -88,7 +85,8 @@
                 <height>3-col</height>
                 <orientation>horizontal</orientation>
                 <onup>ActivateWindow(systeminfo)</onup>
-                <ondown>ActivateWindow(weather)</ondown>
+                <ondown>RunScript(script.globalsearch)</ondown>
+
                 <itemlayout width="3-col" height="3-col">
                     <control type="image">
                         <posx>0</posx>
@@ -139,47 +137,11 @@
                         <label>31000</label>
                         <label2></label2>
                         <thumb>-</thumb>
-                        <onclick>activateWindow(videolibrary)</onclick>
-                        <onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
+                        <onclick>activateWindow(VideoLibrary)</onclick>
+			<onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
+
                     </item>
-                    <item>
-						<visible>!Skin.HasSetting(hideMusic)</visible>
-                        <label>31001</label>
-                        <label2></label2>
-                        <thumb>-</thumb>
-                        <onclick>ActivateWindow(musiclibrary)</onclick>
-                        <onclick>Skin.SetString(showRecentMusicItems,true)</onclick>
-                    </item>
-                    <item>
-						<visible>!Skin.HasSetting(hidePictures)</visible>
-                        <label>31002</label>
-                        <label2></label2>
-                        <thumb>-</thumb>
-                        <onclick>ActivateWindow(pictures)</onclick>
-                    </item>
-					<item>
-						<visible>!Skin.HasSetting(hideGames) + System.HasAddon(script.games.rom.collection.browser)</visible>
-                        <label>31156</label>
-                        <label2></label2>
-                        <thumb>-</thumb>
-                        <onclick>RunScript(script.games.rom.collection.browser)</onclick>
-                    </item>
-					<item>
-						<visible>!Skin.HasSetting(hidePrograms)</visible>
-                        <label>0</label>
-                        <label2></label2>
-                        <thumb>-</thumb>
-                        <onclick>ActivateWindow(programs,addons,return)</onclick>
-                    </item>
-					<item>
-						<visible>!Skin.HasSetting(hideSearch)</visible>
-                        <label>137</label>
-                        <label2></label2>
-                        <thumb>-</thumb>
-                        <onclick>RunScript(script.globalsearch)</onclick>
-						<onclick>Skin.SetString(showRecentMusicItems,false)</onclick>
-						<onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-                    </item>
+
 					<item>
 						<visible>!Skin.HasSetting(hideFavourites)</visible>
                         <label>1036</label>
@@ -199,6 +161,7 @@
                         <thumb>-</thumb>
                         <onclick>ActivateWindow(ShutdownMenu)</onclick>
                     </item>
+
                 </content>
             </control>
         </control>

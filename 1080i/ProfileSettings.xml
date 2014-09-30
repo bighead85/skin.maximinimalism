@@ -16,7 +16,7 @@
             <posy>row-2-begin</posy>
             <!--animations-->
             <include>modalDialogInOutVertical</include>
-            <control type="image" id="2">
+            <control type="image" id="101">
                 <description>profile image</description>
                 <posx>324</posx>
                 <posy>0</posy>
@@ -25,7 +25,7 @@
                 <texture fallback="colors/offblack.png" diffuse="masks/circle.png" border="0">colors/offblack.png</texture>
                 <aspectratio>keep</aspectratio>
             </control>
-            <control type="label" id="1000">
+            <control type="label" id="2">
                 <posx>0</posx>
                 <posy>4-row</posy>
                 <width>12-col</width>
@@ -35,7 +35,7 @@
                 <textcolor>white</textcolor>
                 <shadowcolor>-</shadowcolor>
             </control>
-            <control type="label" id="1001">
+            <control type="label" id="103">
                 <description>Profile Directory</description>
                 <posx>0</posx>
                 <posy>5-row</posy>
@@ -46,7 +46,7 @@
             </control>
             <control type="button" id="6000">
                 <description>Profile switch</description>
-				<visible>!StringCompare(System.ProfileName,control.getlabel(1000))</visible>
+				<visible>!StringCompare(System.ProfileName,control.getlabel(102))</visible>
 				<posx>2-col</posx>
                 <posy>7-row</posy>
                 <align>left</align>
@@ -59,7 +59,7 @@
                 <texturenofocus>-</texturenofocus>
                 <textoffsetx>12</textoffsetx>
 				<label>31131</label>
-				<onclick>LoadProfile($INFO[control.getlabel(1000)])</onclick>
+				<onclick>LoadProfile($INFO[control.getlabel(102)])</onclick>
 				<ondown>5</ondown>
             </control>
 			<control type="grouplist" id="5">

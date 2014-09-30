@@ -3,7 +3,7 @@
     <defaultcontrol always="true">300</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <coordinates>
-        <origin x="0" y="540" />
+        <origin x="0" y="560" />
     </coordinates>
     <controls>
         <control type="group">
@@ -282,7 +282,7 @@
                         <texturefocus>colors/keyaccent.png</texturefocus>
                         <textoffsetx>0</textoffsetx>
                         <focusedcolor>selected</focusedcolor>
-                        <textcolor>selected</textcolor>
+                       <textcolor>selected</textcolor>
                         <align>center</align>
                     </control>
                     <control type="button" id="66">

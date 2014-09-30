@@ -56,26 +56,13 @@
 		    <label2></label2>
 		    <onclick>action(fullscreen)</onclick>
 		</item>
-		<!--CD / DVD handling
-		<item>
-		    <visible>System.HasMediaDVD</visible>
-		    <label>341</label>
-		    <label2></label2>
-		    <onclick>XBMC.PlayDVD()</onclick>
-		</item>
-		<item>
-		    <visible>System.HasMediaDVD</visible>
-		    <label>31135</label>
-		    <label2></label2>
-		    <onclick>EjectTray()</onclick>
-		</item> -->
 		<!--latest items-->
 		<item>
 		    <label>31005</label>
 		    <label2></label2>
 			<onclick>ActivateWindow(videolibrary)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
-		    <onclick>Control.SetFocus(9999)</onclick>
+		    <onclick>Control.hasFocus(9999)</onclick>
 		</item>
 		<item>
 			<visible>System.GetBool(pvrmanager.enabled)</visible>
@@ -102,7 +89,7 @@
 			<visible>Library.HasContent(Movies)</visible>
 		    <label>342</label>
 		    <label2></label2>
-		    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+		    <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
 		    <onclick>control.setfocus(50)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		</item>
@@ -110,7 +97,7 @@
 			<visible>Library.HasContent(TVShows)</visible>
 		    <label>20343</label>
 		    <label2></label2>
-		    <onclick>activateWindow(Videos,tvshowtitles,return)</onclick>
+		    <onclick>ActivateWindow(Videos,TvShowTitles,return)</onclick>
 		    <onclick>control.setfocus(50)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		</item>	
@@ -186,8 +173,22 @@
 		    <onclick condition="StringCompare(Skin.String(customVideoAddon8Type),videoPlaylist)">ActivateWindow(Videos,$INFO[Skin.String(customVideoAddon8)],return)</onclick>
 		    <onclick>Control.SetFocus(52)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-		</item>		
-		<!--final bits and bobs-->
+		</item>	
+		<!--CD / DVD handling-->
+		<item>
+		    <visible>System.HasMediaDVD</visible>
+		    <label>341</label>
+		    <label2></label2>
+		    <onclick>XBMC.PlayDVD()</onclick>
+		</item>
+		<!-- moved to sidebar 
+		<item>
+		    <visible>System.HasMediaDVD</visible>
+		    <label>31135</label>
+		    <label2></label2>
+		    <onclick>EjectTray()</onclick>
+		</item>	-->
+		<!--Addons-->
 		<item>
 			<visible></visible>
 		    <label>31010</label>
@@ -195,12 +196,7 @@
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		    <onclick>Control.SetFocus(59)</onclick>
 		</item>
-		<item>
-			<visible></visible>
-		    <label>1036</label>
-		    <onclick>ActivateWindow(favourites,return)</onclick>
-		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-		</item>
+
     </content>
 </include>
 <!--music menu items-->

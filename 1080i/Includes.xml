@@ -52,7 +52,7 @@
             </control>
             <!--default background-->
             <control type="image">
-                <visible>!Skin.HasSetting(useGlobalFanartBackground) + isempty(skin.string(globalBackground))</visible>
+                <visible>!Skin.HasSetting(useGlobalFanartBackground) + isempty(skin.string(globalBackground))</visible> | 
                 <include>dimensionsFullscreen</include>
                 <texture>special://skin/extras/backgrounds/background001.jpg</texture>
                 <colordiffuse>6affffff</colordiffuse>
@@ -70,7 +70,7 @@
             </control>
             <!--User setting: rolling fanart slides-->
             <control type="multiimage">
-                <visible>Skin.HasSetting(useGlobalFanartBackground) + !container.content(seasons) + !container.content(songs) + [!container.content(episodes) | Substring(Container.folderpath,plugin)]</visible>
+                <visible>Skin.HasSetting(useGlobalFanartBackground) + !container.content(Movies) + !container.content(tvshows) + !container.content(seasons) + !container.content(songs) + [!container.content(episodes) | Substring(Container.folderpath,plugin)]</visible>
                 <posx>0</posx>
                 <posy>0</posy>
                 <include>dimensionsFullscreen</include>
@@ -90,7 +90,7 @@
             </control>
             <!--show media fanart in relevant sections-->
             <control type="group">
-                <visible>container.content(seasons) | container.content(songs) | [container.content(episodes) + !Substring(Container.folderpath,iplayer)]</visible>
+                <visible>container.content(Movies) | container.content(tvshows) | container.content(seasons) | container.content(songs) | [container.content(episodes) + !Substring(Container.folderpath,iplayer)]</visible>
                 <animation type="visible" reversible="false">
                     <effect type="fade" start="0" end="100" time="500" delay="400" />
                 </animation>
@@ -213,20 +213,6 @@
                 <font>buttonTitle</font>
                 <label>$LOCALIZE[31118]</label>
                 <textcolor>selected</textcolor>
-            </control>
-            <control type="label">
-                <visible>!isempty(ListItem.audiocodec)</visible>
-                <width>auto</width>
-                <font>symbol</font>
-                <textcolor>selected</textcolor>
-                <label>     </label>
-            </control>
-            <control type="label">
-                <visible>!isempty(ListItem.audiocodec)</visible>
-                <width>auto</width>
-                <font>buttonTitle</font>
-                <textcolor>selected</textcolor>
-                <label>$INFO[ListItem.audiocodec]</label>
             </control>
             <control type="label">
                 <visible>!isempty(ListItem.FileName)</visible>

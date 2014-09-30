@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="viewVideoPanel">
+<<!--Video panel-->
+    <control type="group" description="Panel view">
+	<visible>Control.IsVisible(509)</visible>
+	<visible>!isEmpty(container.foldername)</visible>
+
+        <control type="group">
+            <posx>0</posx>
+            <posy>3-row</posy>
+<!--Episode Titles-->
+		<control type="label">
+		    <visible>!isempty(ListItem.playcount) + container.content(episodes)</visible>
+                    <description>Episode title</description>
+                    <posx>0</posx>
+                    <posy>-80</posy>
+                    <width>20-col</width>
+                    <align>left</align>
+                    <font>mediumStrong</font>
+                    <scroll>true</scroll>
+                    <textcolor>selected</textcolor>
+                    <shadowcolor>-</shadowcolor>
+                    <label>$INFO[ListItem.Label]</label>
+             	</control>
+             	<control type="label">
+		    <visible>!IntegerGreaterThan(ListItem.PlayCount,0) + container.content(episodes)</visible>
+                    <description>Episode title</description>
+                    <posx>0</posx>
+                    <posy>-80</posy>
+                    <width>20-col</width>
+                    <align>left</align>
+                    <font>mediumStrong</font>
+                    <scroll>true</scroll>
+                    <textcolor>FF5AB7E3</textcolor>
+                    <shadowcolor>-</shadowcolor>
+                    <label>$INFO[ListItem.Label]</label>
+              	</control>
+              	<control type="label">
+		    <visible>!IntegerGreaterThan(ListItem.PlayCount,0) + container.content(episodes)</visible>
+                    <posx>0</posx>
+                    <posy>-40</posy>
+                    <width>10-col</width>
+                    <align>left</align>
+                    <font>itemTitleSmall</font>
+                    <textcolor>FF5AB7E3</textcolor>
+                    <shadowcolor>-</shadowcolor>
+                    <scroll>true</scroll>
+                    <label>$INFO[listitem.duration,, $LOCALIZE[31018]] - $INFO[ListItem.Premiered, $LOCALIZE[20416] ,]</label>
+               	</control>
+               	<control type="label">
+	            <visible>!isempty(ListItem.playcount) + container.content(episodes)</visible>
+                    <posx>0</posx>
+                    <posy>-40</posy>
+                    <width>10-col</width>
+                    <align>left</align>
+                    <font>itemTitleSmall</font>
+                    <textcolor>selected</textcolor>
+                    <shadowcolor>-</shadowcolor>
+                    <scroll>true</scroll>
+                    <label>$INFO[listitem.duration,, $LOCALIZE[31018]] - $INFO[ListItem.Premiered, $LOCALIZE[20416] ,]</label>
+              	 </control>
+<!--content is movies / tvshows / episode show Plot-->
+               <control type="textbox">
+                    <visible>!IntegerGreaterThan(ListItem.PlayCount,0) + [container.content(movies) | container.content(tvshows) | container.content(episodes)]</visible>
+                    <posx>11-col</posx>
+                    <posy>0</posy>
+                    <width>10-col</width>
+                    <height>685</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+		    <textcolor>FF5AB7E3</textcolor>
+		    <label>$INFO[Listitem.plot]</label>
+                    <fadetime>200</fadetime>
+                    <autoscroll delay="1000" time="1000" repeat="8000"></autoscroll>
+                </control>
+                <control type="textbox">
+                    <visible>!isempty(ListItem.playcount) + [container.content(movies) | container.content(tvshows) | container.content(episodes)]</visible>
+                    <posx>11-col</posx>
+                    <posy>0</posy>
+                    <width>10-col</width>
+                    <height>685</height>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+		    <textcolor>selected</textcolor>
+		    <label>$INFO[Listitem.plot]</label>
+                    <fadetime>200</fadetime>
+                    <autoscroll delay="1000" time="1000" repeat="8000"></autoscroll>
+                </control>
+            <control type="group">
+                <posx>12-col</posx>
+                <posy>12</posy>
+            </control>
+<!--Item Lists-->
+            <control type="panel" id="509">
+                <visible>!Substring(Container.folderpath,plugin) + !container.content(addons) | Container.Content(Movies) | Container.content(tvshows) | container.content(episodes)</visible>
+          <viewtype label="$LOCALIZE[31976]">Panel</viewtype>          
+<animation type="windowclose">
+                    <effect type="fade" start="100" end="0" time="200" />
+                </animation>
+                <posx>0</posx>
+                <posy>4</posy>
+                <width>12-col</width>
+                <height>13-row</height>
+                <onleft>9000</onleft>
+                <onright>60</onright>
+                <ondown>50</ondown>
+                <onup>50</onup>
+                <pagecontrol>60</pagecontrol>
+                <scrolltime tween="sine" easing="inout">300</scrolltime>
+                <itemlayout condition="Container.Content(Movies) | Container.content(tvshows)" height="300" width="195">
+                    <control type="image">
+                        <posx>4</posx>
+                        <posy>14</posy>
+                        <width>187</width>
+                        <height>280</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>$INFO[Listitem.thumb]</texture>
+                    </control>
+		    <control type="image">
+                	<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+                	<posx>130</posx>
+                	<posy>255</posy>
+                	<height>40</height>
+                	<width>50</width>
+                	<aspectratio>keep</aspectratio>
+                	<texture>UIControls/ReadBadge.png</texture>
+              	     </control>
+              	    <control type="label" description="unwatched">
+                	<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+                	<posx>80</posx>
+                	<posy>250</posy>
+                	<height>45</height>
+                	<width>150</width>
+                	<font>smallmedium</font>
+                	<scroll>true</scroll>
+                	<align>center</align>
+                	<scroll>false</scroll>
+                	<textcolor>selected</textcolor>
+                	<label>$INFO[ListItem.Property(UnwatchedEpisodes)]</label> 
+              	    </control>
+                </itemlayout>
+                <focusedlayout condition="Container.Content(Movies) | Container.content(tvshows)" height="300" width="195">
+                    <control type="image">
+                        <posx>4</posx>
+                        <posy>14</posy>
+                        <width>187</width>
+                        <height>280</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>$INFO[Listitem.thumb]</texture>
+                    </control>
+		    <control type="image">
+                	<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+                	<posx>130</posx>
+                	<posy>255</posy>
+                	<height>40</height>
+                	<width>50</width>
+                	<aspectratio>keep</aspectratio>
+                	<texture>UIControls/ReadBadge.png</texture>
+              	     </control>
+              	    <control type="label" description="unwatched">
+                	<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+                	<posx>80</posx>
+                	<posy>250</posy>
+                	<height>45</height>
+                	<width>150</width>
+                	<font>smallmedium</font>
+                	<scroll>true</scroll>
+                	<align>center</align>
+                	<scroll>false</scroll>
+                	<textcolor>selected</textcolor>
+                	<label>$INFO[ListItem.Property(UnwatchedEpisodes)]</label> 
+              	    </control>
+                </focusedlayout>
+                <itemlayout condition="Container.Content(episodes)" height="198" width="260">
+                    <control type="image">
+                        <posx>4</posx>
+                        <posy>14</posy>
+                        <width>250</width>
+                        <height>188</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>$INFO[Listitem.thumb]</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout condition="Container.Content(episodes)" height="198" width="260">
+                    <control type="image">
+                        <posx>4</posx>
+                        <posy>14</posy>
+                        <width>250</width>
+                        <height>188</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>$INFO[Listitem.thumb]</texture>
+                    </control>
+                </focusedlayout>
+ 	     </control></control></control>
+    </include>
+</includes>

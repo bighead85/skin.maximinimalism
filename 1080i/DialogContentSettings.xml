@@ -45,7 +45,7 @@
                 <shadowcolor>-</shadowcolor>
             </control>
             <!--dialog options-->
-            <control type="spincontrolex" id="3">
+            <control type="spincontrolex" id="20">
                 <description>Directory Content</description>
                 <posx>0</posx>
                 <posy>2-row</posy>
@@ -181,7 +181,7 @@
                 </focusedlayout>
             </control>
             <!--specific media type settings-->
-            <control type="button" id="6">
+            <control type="button" id="22">
                 <description>Specific media type settings</description>
                 <posx>0</posx>
                 <posy>9-row</posy>
@@ -200,7 +200,7 @@
                 <onright>9001</onright>
             </control>
             <!--misc options-->
-            <control type="grouplist" id="5">
+            <control type="grouplist" id="21">
                 <description>Control Area</description>
                 <posx>0</posx>
                 <posy>10-row</posy>
