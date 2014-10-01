@@ -57,13 +57,7 @@
 		    <onclick>action(fullscreen)</onclick>
 		</item>
 		<!--latest items-->
-		<item>
-		    <label>31005</label>
-		    <label2></label2>
-			<onclick>ActivateWindow(videolibrary)</onclick>
-		    <onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
-		    <onclick>Control.hasFocus(9999)</onclick>
-		</item>
+
 		<item>
 			<visible>System.GetBool(pvrmanager.enabled)</visible>
 		    <label>31006</label>
@@ -84,31 +78,31 @@
 		    <label2></label2>
 		    <onclick>ActivateWindowAndFocus(pvr, 34,0, 13,1)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-		</item>
+		</item>		
 		<item>
 			<visible>Library.HasContent(Movies)</visible>
-		    <label>342</label>
+		    <label>Kids Films</label>
 		    <label2></label2>
-		    <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+		    <onclick>ActivateWindow(10025,"special://profile/playlists/video/Family.xsp",return)</onclick>
 		    <onclick>control.setfocus(50)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		</item>
 		<item>
 			<visible>Library.HasContent(TVShows)</visible>
-		    <label>20343</label>
+		    <label>Kids TV</label>
 		    <label2></label2>
-		    <onclick>ActivateWindow(Videos,TvShowTitles,return)</onclick>
+		    <onclick>ActivateWindow(10025,"special://profile/playlists/video/Kids TV.xsp",return)</onclick>
 		    <onclick>control.setfocus(50)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		</item>	
+		<!--Latest-->
 		<item>
-			<visible></visible>
-		    <label>136</label>
+		    <label>31005</label>
 		    <label2></label2>
-		    <onclick>activateWindow(Videos,playlists,return)</onclick>
-		    <onclick>control.setfocus(50)</onclick>
-		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-		</item>		
+			<onclick>ActivateWindow(videolibrary)</onclick>
+		    <onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
+		    <onclick>Control.hasFocus(9999)</onclick>
+		</item>
 		<!--custom video addons-->
 		<item>
 			<visible>!isempty(Skin.String(customVideoAddon1))</visible>
@@ -189,14 +183,6 @@
 		    <onclick>EjectTray()</onclick>
 		</item>	-->
 		<!--Addons-->
-		<item>
-			<visible></visible>
-		    <label>31010</label>
-		    <onclick>ActivateWindow(Videos,addons,return)</onclick>
-		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
-		    <onclick>Control.SetFocus(59)</onclick>
-		</item>
-
     </content>
 </include>
 <!--music menu items-->

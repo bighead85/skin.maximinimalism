@@ -124,7 +124,54 @@
         <onclick>RunScript(script.globalsearch,movies=true&amp;tvshows=true&amp;episodes=true)</onclick>
         <onclick>right</onclick>
     </control>
-	
+	   	<control type="button" id="511">
+        <description>Adult Movies</description>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+		<visible>Library.HasContent(TVShows)</visible>
+		<label>342</label>
+		<label2></label2>
+		<onclick>ActivateWindow(10025,"special://profile/playlists/video/Movies.xsp",return)</onclick>
+		<onclick>control.setfocus(50)</onclick>
+		<onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
+    </control>
+   	<control type="button" id="504">
+        <description>Adult TV</description>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+		<visible>Library.HasContent(TVShows)</visible>
+		<label>20343</label>
+		<label2></label2>
+		<onclick>ActivateWindow(10025,"special://profile/playlists/video/TV Shows.xsp",return)</onclick>
+		<onclick>control.setfocus(50)</onclick>
+		<onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
+    </control>
+	<control type="button" id="508">
+		<visible></visible>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+        <label>653</label>
+        <onclick>UpdateLibrary(video)</onclick>
+        <onclick>right</onclick>
+    </control>
 	<control type="button" id="503">
         <description>Search (PVR)</description>
 		<visible>window.isactive(pvr)</visible>
@@ -186,21 +233,6 @@
         <texturenofocus>colors/unselected.png</texturenofocus>
         <textoffsetx>12</textoffsetx>
     </control>
-
-   	<!-- <control type="button" id="504">
-        <description>Timers / scheduler</description>
-        <height>54</height>
-        <width>4-col</width>
-        <font>menuTitle</font>
-        <textcolor>black</textcolor>
-        <focusedcolor>selected</focusedcolor>
-        <texturefocus>colors/black.png</texturefocus>
-        <texturenofocus>colors/unselected.png</texturenofocus>
-        <textoffsetx>12</textoffsetx>
-        <label>31119</label>
-        <onclick>ActivateWindowAndFocus(pvr, 35,0, 9999,1)</onclick>
-    </control> -->
-
     <control type="button" id="505">
         <description>Menu shortcuts (video)</description>
 		<visible></visible>
@@ -233,8 +265,8 @@
         <onclick>ActivateWindow(Videos,files,return)</onclick>
         <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
     </control>
-
-    <control type="button" id="507">
+	<control type="button" id="507">
+        <description>Playlists</description>
 		<visible></visible>
         <height>54</height>
         <width>4-col</width>
@@ -244,11 +276,27 @@
         <texturefocus>colors/black.png</texturefocus>
         <texturenofocus>colors/unselected.png</texturenofocus>
         <textoffsetx>12</textoffsetx>
-        <label>653</label>
-        <onclick>UpdateLibrary(video)</onclick>
+        <label>136</label>
         <onclick>right</onclick>
+		<onclick>activateWindow(Videos,playlists,return)</onclick>
+        <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
     </control>
-
+	<control type="button" id="513">
+        <description>Addons</description>
+		<visible></visible>
+        <height>54</height>
+        <width>4-col</width>
+        <font>menuTitle</font>
+        <textcolor>black</textcolor>
+        <focusedcolor>selected</focusedcolor>
+        <texturefocus>colors/black.png</texturefocus>
+        <texturenofocus>colors/unselected.png</texturenofocus>
+        <textoffsetx>12</textoffsetx>
+        <label>31010</label>
+		<onclick>ActivateWindow(Videos,addons,return)</onclick>
+		<onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
+		<onclick>Control.SetFocus(59)</onclick>
+    </control>
     <control type="radiobutton" id="14">
         <description>Watched Toggle</description>
 		<visible></visible>
@@ -262,7 +310,6 @@
         <texturefocus>colors/black.png</texturefocus>
         <texturenofocus>colors/unselected.png</texturenofocus>
     </control>
-
     <control type="radiobutton" id="508">
         <description>Filter</description>
         <visible>Container.CanFilterAdvanced</visible>
