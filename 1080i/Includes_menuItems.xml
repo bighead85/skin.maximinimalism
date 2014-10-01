@@ -103,6 +103,14 @@
 		    <onclick>Skin.SetString(showRecentVideoItems,true)</onclick>
 		    <onclick>Control.hasFocus(9999)</onclick>
 		</item>
+		<item>
+			<visible>Library.HasContent(TVShows)</visible>
+		    <label>In Progress</label>
+		    <label2></label2>
+		    <onclick>ActivateWindow(10025,"special://profile/playlists/video/In Progress.xsp",return)</onclick>
+		    <onclick>control.setfocus(50)</onclick>
+		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
+		</item>	
 		<!--custom video addons-->
 		<item>
 			<visible>!isempty(Skin.String(customVideoAddon1))</visible>
