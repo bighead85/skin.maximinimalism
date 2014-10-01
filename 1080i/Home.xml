@@ -13,7 +13,7 @@
                 <align>left</align>
                 <font>smallMedium</font>
                 <textcolor>selected</textcolor>
-                <label>IP Address: $INFO[Network.IPAddress]</label>
+                <label>IP Address:[CR]$INFO[Network.IPAddress]</label>
             </control>
         <!--Date / time and weather-->
         <control type="group">
